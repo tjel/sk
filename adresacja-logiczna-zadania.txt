@@ -1,3 +1,5 @@
 Zad. 1
 
-Dla trójkątnej topologii sieci LAN skonfigurować adresy logiczne interfejsów tak by każde połączenie stanowiło odrębną sieć (użyć puli adresów prywatnych) i by komputery na końcu każdego połączenia mogły się komunikować.
+Dla trójkątnej topologii sieci LAN skonfigurować adresy logiczne interfejsów tak by każde
+połączenie stanowiło odrębną sieć (użyć puli adresów prywatnych) i by komputery na końcu
+każdego połączenia mogły się komunikować.
