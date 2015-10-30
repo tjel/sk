@@ -1,0 +1,85 @@
+Zad. 1
+
+Podany adres IP oraz maskę proszę zapisać w postaci binarnej a następnie wyznaczyć adres sieci do której przynależy, minimalny oraz maksymalny adres hosta w tej sieci, adres rozgłoszeniowy:
+
+a) 192.168.17.0/22
+
+b) 192.168.16.180/255.255.255.192
+
+c) 192.168.16.180/255.255.254.0
+
+
+Zad. 2
+
+a) Proszę sprawdzić czy adresy 122.14.1.2/7 oraz 122.14.2.1/7 znajdują się w tej samej sieci?
+
+b) Sprawdzić czy hosty 192.168.134.200 i 192.168.135.15 należą do tej samej sieci (maska 255.255.252.0).
+
+Zad. 3
+
+a) Sieć 192.168.16.0/24 proszę podzielić na cztery równej wielkości podsieci.
+
+b) Podzielić na dwie podsieci sieć 172.16.1.0/24.
+
+
+Zad. 4
+
+Sieć 192.168.16.0/24 proszę podzielić na trzy różnej wielkości podsieci.
+
+
+Zad. 5
+
+Podane niżej zakresy sieci proszę wyrazić przy użyciu zapisu z maską sieciową. Jeśli dla jakiegoś zakresu nie jest to możliwe, proszę to zaznaczyć!
+
+67.56.34.64 – 67.56.34.79
+
+121.232.111.128 – 121.232.111.255
+
+121.34.56.64 – 121.34.56.128
+
+128.131.9.0 – 128.131.9.192
+
+108.47.200.192 – 108.47.200.223
+
+93.20.10.0 – 93.20.11.0
+
+128.242.138.0 – 128.242.139.127
+
+200.220.76.0 – 200.220.79.255
+
+200.220.0.0 – 200.223.255.255
+
+
+Zad. 6
+
+Podane poniżej adresy sieci wyraź za pomocą zakresów:
+
+68.103.128.0/22
+
+34.254.21.128/25
+
+68.103.128.0/24
+
+127.0.0.1/8
+
+0.0.0.0/0
+
+
+Zad. 7
+
+Dla każdej z podanej podsieci podaj przykład adresu który należy do tej sieci oraz adresu spoza tej sieci:
+
+192.0.0.0/4
+
+230.208.32.0/28
+
+88.68.124.132/30
+
+103.124.20.128/26
+
+128.129.0.0/16
+
+
+
+
+

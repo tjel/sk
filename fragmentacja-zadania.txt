@@ -1,0 +1,7 @@
+Zad. 1
+
+a) Proszę wyslać komunikat ping -s 3000 wp.pl
+
+b) Używając programu Wireshark proszę przechwycić wysłane i odebrane pakiety ICMP stosując odpowiedni filtr protokołu i adresu nadawcy badź adresata
+
+c) W każdym z przechwyconych fragmentów tego samego komunikatu odnotować: długość nagłówka IP, przesunięcie fragmentu, długość całkowitą, flagi i numer identyfikacyjny 
