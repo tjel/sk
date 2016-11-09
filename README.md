@@ -92,7 +92,7 @@ R1(config-router)network 192.168.1.0
 R1(config-router)network 192.168.3.0
 R1(config-router)exit
 R1(config)#exit
-
+```
 
 
 
