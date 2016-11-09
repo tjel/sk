@@ -77,12 +77,21 @@ ip route add 10.0.0.0/8 dev eth1 scope link
 ip route add default via 10.0.0.1 dev eth1
 ```
 
-e) wlaczenie obslugi routingu
+e) wlaczenie obslugi routingu na hoscie
 ```
 echo "1" > /proc/sys/net/ipv4/ip_forward
 ```
 
-
+f) wlaczenie routingu dynamicznego RIPv2 na routerze R1 podlaczonego do sieci 192.168.1.0 oraz 192.168.3.0
+```
+R1#configure terminal
+R1(config)#router rip
+R1(config-router)no auto-summary
+R1(config-router)version 2
+R1(config-router)network 192.168.1.0
+R1(config-router)network 192.168.3.0
+R1(config-router)exit
+R1(config)#exit
 
 
 
