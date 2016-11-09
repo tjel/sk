@@ -1,7 +1,8 @@
 # sk
 
-[1] Kurose&Ross, [Sieci Komputerowe](http://helion.pl/ksiazki/sieci-komputerowe-ujecie-calosciowe-wydanie-v-james-f-kurose-keith-w-ross,sieuc5.htm)
-[2] Krysiak, [Sieci komputerowe. Kompendium](http://helion.pl/ksiazki/sieci-komputerowe-kompendium-wydanie-ii-karol-krysiak,adsi2v.htm)
+[1] Kurose&Ross, [Sieci Komputerowe](http://helion.pl/ksiazki/sieci-komputerowe-ujecie-calosciowe-wydanie-v-james-f-kurose-keith-w-ross,sieuc5.htm), wyd. V
+
+[2] Krysiak, [Sieci komputerowe. Kompendium](http://helion.pl/ksiazki/sieci-komputerowe-kompendium-wydanie-ii-karol-krysiak,adsi2v.htm), wyd. II
 
 ---
 2016.11.17
