@@ -18,7 +18,7 @@
 
 - routing statyczny, brama domyslna
 - tablice routingu, flagi, metryka
-- konfiguracja trasowania routera i VPCSa
+- konfiguracja trasowania routera i VPCS-a
 - ping, traceroute
 - zmiana metryki w tablicy routingu
 - routing dynamiczny, konfiguracja routera
@@ -82,7 +82,27 @@ e) wlaczenie obslugi routingu na hoscie
 echo "1" > /proc/sys/net/ipv4/ip_forward
 ```
 
-f) wlaczenie routingu dynamicznego RIPv2 na routerze R1 podlaczonego do sieci 192.168.1.0 oraz 192.168.3.0
+f) przypisanie adresu IP do VPCS-a PC1, sprawdzenie IP, sprawdzenie tablicy ARP
+```
+PC1>ip 10.0.5.3/24 10.0.5.1
+PC1>show ip [all]
+PC1>trace 10.0.5.2
+```
+
+f) zapis i wczytanie ustawien VPCS-a PC1
+```
+PC1>save PC1.vpc
+PC1>load PC1.vpc
+```
+
+g) zapis i wczytanie ustawien routera
+
+```
+write memory
+```
+
+
+h) wlaczenie routingu dynamicznego RIPv2 na routerze R1 podlaczonego do sieci 192.168.1.0 oraz 192.168.3.0
 ```
 R1#configure terminal
 R1(config)#router rip
@@ -94,6 +114,11 @@ R1(config-router)exit
 R1(config)#exit
 ```
 
+i) wlaczenie routingu dynamicznego OSPF na routerze R2
 
-
-
+```
+R1#configure terminal
+R1(config)#router ospf 1
+R1(config-router)#network 0.0.0.0 255.255.255.255.255 area 0
+R1(config-router)#end
+```
