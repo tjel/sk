@@ -105,10 +105,10 @@ S1(config)#exit
 ```
 
 ```bash
-VPCS1> ip address 10.0.10.2
-VPCS2> ip address 10.0.20.2
-VPCS3> ip address 10.0.10.3
-VPCS4> ip address 10.0.20.3
+VPCS1> ip address 10.0.10.2 255.255.255.0 10.0.10.1
+VPCS2> ip address 10.0.20.2 255.255.255.0 10.0.20.1
+VPCS3> ip address 10.0.10.3 255.255.255.0 10.0.10.1
+VPCS4> ip address 10.0.20.3 255.255.255.0 10.0.20.1
 ```
 
 
