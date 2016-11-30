@@ -7,24 +7,87 @@
 [3] Forouzan, [Computer Networks: A Top-Down Approach](https://www.amazon.com/Computer-Networks-Top-Down-Approach/dp/0073523267/ref=sr_1_3?s=books&ie=UTF8&qid=1478721337&sr=1-3&keywords=forouzan+computer)
 
 ---
-2016.11.17
+2016.12.01
 
 - konfiguracja VLAN, IEEE 802.1Q
-- trunking
-- polaczenie z routerem przez telnet, konfiguracja tty
+- trunking pomiedzy dwoma switchami
+- routing pomiedzy sieciami VLAN, 'router on stick'
+- routing dynamiczny, konfiguracja routera
+- protokoly routingu dynamicznego 
+- konfiguracja routera RIPv2, algorytm Bellmana-Forda, 
+- wplyw zmiany topologii sieci na tablice routingu
+- konfiguracja routera OSPF, algorytm Dijkstry
+- zmiana metryki w tablicy routingu
+
+a) wykorzystanie routera Cisco c3725 z modulem NM-16ESW jako konfigurowalnego switcha
+
+  - `PCMCI slot memory > 1 MiB`
+  - `erase flash:`
+
+b) konfiguracja dwoch sieci VLAN polaczonych za pomoca trunka pomiedzy switchami S1 i S2
+
+```bash
+S1#vlan database
+S1(vlan)#vlan 10 name office1
+S1(vlan)#vlan 20 name office2
+S1(vlan)#vlan 30 name office3
+S1(vlan)#exit
+S1#show vlan-switch
+S1#show ip interace brief
+S1# configure terminal
+S1(config)# interface f1/0
+S1(config-if)# switchport mode trunk
+S1(config-if)# exit
+S1(config)# interface f1/1
+S1(config-if)# switchport mode access
+S1(config-if)# switchport access vlan 10
+S1(config-if)# exit
+S1(config)# interface f1/2
+S1(config-if)# switchport mode access
+S1(config-if)# switchport access vlan 20
+S1(config-if)# exit
+S1(config)# interface f1/3
+S1(config-if)# switchport mode access
+S1(config-if)# switchport access vlan 30
+S1(config-if)# exit
+```
+c) przechwytywanie pakietow ICMP za pomoca Wiresharka pomiedzy VPCS1 a S1 oraz na trunku pomiedzy S1 oraz S2
+
+d) sprawdzenie tagowania wg. standardu 802.1Q, TPID, TCI (PCP,CFI,VID)
+
+e) routing pomiedzy sieciami VLAN, 'router on stick'
+
+
+h) wlaczenie routingu dynamicznego RIPv2 na routerze R1 podlaczonego do sieci 192.168.1.0 oraz 192.168.3.0
+```
+R1#configure terminal
+R1(config)#router rip
+R1(config-router)no auto-summary
+R1(config-router)version 2
+R1(config-router)network 192.168.1.0
+R1(config-router)network 192.168.3.0
+R1(config-router)exit
+R1(config)#exit
+```
+
+i) wlaczenie routingu dynamicznego OSPF na routerze R2
+
+```
+R1#configure terminal
+R1(config)#router ospf 1
+R1(config-router)#network 0.0.0.0 255.255.255.255.255 area 0
+R1(config-router)#end
+```
+
 
 ---
 2016.11.17
 
 - routing statyczny, brama domyslna
 - tablice routingu, flagi, metryka
+- polaczenie z routerem przez telnet, konfiguracja tty
 - konfiguracja trasowania routera i VPCS-a
 - ping, traceroute
-- zmiana metryki w tablicy routingu
-- routing dynamiczny, konfiguracja routera
-- protokoly routingu dynamicznego, RIPv2, OSPF
-- algorytm Bellmana-Forda, algorytm Dijkstry
-- wplyw zmiany topologii sieci na tablice routingu
 
 a) konfiguracja interfejsow sieciowych
 ```
@@ -99,26 +162,4 @@ g) zapis i wczytanie ustawien routera
 
 ```
 write memory
-```
-
-
-h) wlaczenie routingu dynamicznego RIPv2 na routerze R1 podlaczonego do sieci 192.168.1.0 oraz 192.168.3.0
-```
-R1#configure terminal
-R1(config)#router rip
-R1(config-router)no auto-summary
-R1(config-router)version 2
-R1(config-router)network 192.168.1.0
-R1(config-router)network 192.168.3.0
-R1(config-router)exit
-R1(config)#exit
-```
-
-i) wlaczenie routingu dynamicznego OSPF na routerze R2
-
-```
-R1#configure terminal
-R1(config)#router ospf 1
-R1(config-router)#network 0.0.0.0 255.255.255.255.255 area 0
-R1(config-router)#end
 ```
