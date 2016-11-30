@@ -73,10 +73,10 @@ R1(config)#exit
 i) wlaczenie routingu dynamicznego OSPF na routerze R2
 
 ```
-R1#configure terminal
-R1(config)#router ospf 1
-R1(config-router)#network 0.0.0.0 255.255.255.255.255 area 0
-R1(config-router)#end
+R2#configure terminal
+R2(config)#router ospf 1
+R2(config-router)#network 0.0.0.0 255.255.255.255.255 area 0
+R2(config-router)#end
 ```
 
 
