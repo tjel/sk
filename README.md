@@ -24,7 +24,7 @@ a) wykorzystanie routera Cisco c3725 z modulem NM-16ESW jako konfigurowalnego sw
   - `PCMCI slot memory > 1 MiB`
   - `erase flash:`
 
-b) konfiguracja dwoch sieci VLAN polaczonych za pomoca trunka pomiedzy switchami S1 i S2
+b) konfiguracja trzech sieci VLAN polaczonych za pomoca trunka pomiedzy switchami S1 i S2
 
 ```bash
 S1#vlan database
@@ -50,12 +50,68 @@ S1(config)# interface f1/3
 S1(config-if)# switchport mode access
 S1(config-if)# switchport access vlan 30
 S1(config-if)# exit
+S1(config)# exit
+S1# show vlan-switch
 ```
-c) przechwytywanie pakietow ICMP za pomoca Wiresharka pomiedzy VPCS1 a S1 oraz na trunku pomiedzy S1 oraz S2
+c) przechwytywanie pakietow ping (ICMP) za pomoca Wiresharka pomiedzy symulatorami VPCS a S1 oraz na trunku pomiedzy S1 oraz S2
 
-d) sprawdzenie tagowania wg. standardu 802.1Q, TPID, TCI (PCP,CFI,VID)
+d) sprawdzenie tagowania wg. standardu 802.1Q, TPID, TCI (PCP, CFI, VID)
 
 e) routing pomiedzy sieciami VLAN, 'router on stick'
+
+```bash
+R1#configure terminal
+R1(config)#interface f0/0.10
+R1(config-if)#no shutdown
+R1(config-if)#encapsulation dot1Q 10
+R1(config-if)#ip address 10.0.10.1 255.255.255.0
+R1(config-if)#exit
+R1(config)#interface f0/0.20
+R1(config-if)#encapsulation dot1Q 20
+R1(config-if)#ip address 10.0.20.0.1 255.255.255.0
+R1(config-if)#exit
+```
+
+```bash
+S1#vlan database
+S1(vlan)#vlan 10 name office1
+S1(vlan)#vlan 20 name office2
+S1(vlan)#exit
+S1#configure terminal
+S1(config)#interface f1/0
+S1(config-if)#no shutdown
+S1(config-if)#switchport mode trunk
+S1(config-if)#exit
+S1(config)#interface f1/1
+S1(config-if)#no shutdown
+S1(config-if)#switchport mode access
+S1(config-if)#switchport access vlan 10
+S1(config-if)#exit
+S1(config)#interface f1/2
+S1(config-if)#no shutdown
+S1(config-if)#switchport mode access
+S1(config-if)#switchport access vlan 20
+S1(config-if)#exit
+S1(config)#interface f1/3
+S1(config-if)#no shutdown
+S1(config-if)#switchport mode access
+S1(config-if)#switchport access vlan 10
+S1(config-if)#exit
+S1(config)#interface f1/4
+S1(config-if)#no shutdown
+S1(config-if)#switchport mode access
+S1(config-if)#switchport access vlan 20
+S1(config)#exit
+```
+
+```bash
+VPCS1> ip address 10.0.10.2
+VPCS2> ip address 10.0.20.2
+VPCS3> ip address 10.0.10.3
+VPCS4> ip address 10.0.20.3
+```
+
+
 
 
 h) wlaczenie routingu dynamicznego RIPv2 na routerze R1 podlaczonego do sieci 192.168.1.0 oraz 192.168.3.0
