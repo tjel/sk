@@ -34,7 +34,7 @@ S1(vlan)#vlan 30 name office3
 S1(vlan)#exit
 S1#show vlan-switch
 S1#show ip interace brief
-S1# configure terminal
+S1#configure terminal
 S1(config)# interface f1/0
 S1(config-if)# switchport mode trunk
 S1(config-if)# exit
