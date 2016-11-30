@@ -35,23 +35,24 @@ S1(vlan)#exit
 S1#show vlan-switch
 S1#show ip interace brief
 S1#configure terminal
-S1(config)# interface f1/0
-S1(config-if)# switchport mode trunk
-S1(config-if)# exit
-S1(config)# interface f1/1
-S1(config-if)# switchport mode access
-S1(config-if)# switchport access vlan 10
-S1(config-if)# exit
-S1(config)# interface f1/2
-S1(config-if)# switchport mode access
-S1(config-if)# switchport access vlan 20
-S1(config-if)# exit
-S1(config)# interface f1/3
-S1(config-if)# switchport mode access
-S1(config-if)# switchport access vlan 30
-S1(config-if)# exit
-S1(config)# exit
-S1# show vlan-switch
+S1(config)#interface f1/0
+S1(config-if)#switchport mode trunk
+S1(config-if)#exit
+S1(config)#interface f1/1
+S1(config-if)#switchport mode access
+S1(config-if)#switchport access vlan 10
+S1(config-if)#exit
+S1(config)#interface f1/2
+S1(config-if)#switchport mode access
+S1(config-if)#switchport access vlan 20
+S1(config-if)#exit
+S1(config)#interface f1/3
+S1(config-if)#switchport mode access
+S1(config-if)#switchport access vlan 30
+S1(config-if)#exit
+S1(config)#exit
+S1#show vlan-switch
+S1#write memory
 ```
 c) przechwytywanie pakietow ping (ICMP) za pomoca Wiresharka pomiedzy symulatorami VPCS a S1 oraz na trunku pomiedzy S1 oraz S2
 
@@ -61,15 +62,18 @@ e) routing pomiedzy sieciami VLAN, 'router on stick'
 
 ```bash
 R1#configure terminal
-R1(config)#interface f0/0.10
+R1(config)#interface f0/0
 R1(config-if)#no shutdown
-R1(config-if)#encapsulation dot1Q 10
-R1(config-if)#ip address 10.0.10.1 255.255.255.0
+R1(config-if)#interface f0/0.10
+R1(config-subif)#encapsulation dot1Q 10
+R1(config-subif)#ip address 10.0.10.1 255.255.255.0
+R1(config-subif)#interface f0/0.20
+R1(config-subif)#encapsulation dot1Q 20
+R1(config-subif)#ip address 10.0.20.0.1 255.255.255.0
+R1(config-subif)#exit
 R1(config-if)#exit
-R1(config)#interface f0/0.20
-R1(config-if)#encapsulation dot1Q 20
-R1(config-if)#ip address 10.0.20.0.1 255.255.255.0
-R1(config-if)#exit
+R1(config)#exit
+R1#write memory
 ```
 
 ```bash
@@ -102,13 +106,18 @@ S1(config-if)#no shutdown
 S1(config-if)#switchport mode access
 S1(config-if)#switchport access vlan 20
 S1(config)#exit
+S1#write memory
 ```
 
 ```bash
-VPCS1> ip address 10.0.10.2 255.255.255.0 10.0.10.1
+VPCS1>ip address 10.0.10.2 255.255.255.0 10.0.10.1
+VPCS1>save PC1.vpc
 VPCS2> ip address 10.0.20.2 255.255.255.0 10.0.20.1
+VPCS2>save PC2.vpc
 VPCS3> ip address 10.0.10.3 255.255.255.0 10.0.10.1
+VPCS3>save PC3.vpc
 VPCS4> ip address 10.0.20.3 255.255.255.0 10.0.20.1
+VPCS4>save PC4.vpc
 ```
 
 
