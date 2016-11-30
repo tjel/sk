@@ -19,7 +19,7 @@
 - konfiguracja routera OSPF, algorytm Dijkstry
 - zmiana metryki w tablicy routingu
 
-a) wykorzystanie routera Cisco c3725 z modulem NM-16ESW jako konfigurowalnego switcha
+a) ustawienie routera Cisco c3725 z modulem NM-16ESW jako konfigurowalny switch
 
   - `PCMCI slot memory > 1 MiB`
   - `erase flash:`
@@ -55,7 +55,7 @@ S1# show vlan-switch
 ```
 c) przechwytywanie pakietow ping (ICMP) za pomoca Wiresharka pomiedzy symulatorami VPCS a S1 oraz na trunku pomiedzy S1 oraz S2
 
-d) sprawdzenie tagowania wg. standardu 802.1Q, TPID, TCI (PCP, CFI, VID)
+d) sprawdzenie tagowania wg. standardu 802.1Q, TPID, TCI (PCP, CFI, VID), max. ilosc sieci VLAN
 
 e) routing pomiedzy sieciami VLAN, 'router on stick'
 
@@ -114,7 +114,7 @@ VPCS4> ip address 10.0.20.3
 
 
 
-h) wlaczenie routingu dynamicznego RIPv2 na routerze R1 podlaczonego do sieci 192.168.1.0 oraz 192.168.3.0
+h) wlaczenie routingu dynamicznego RIPv2 na routerze R1 podlaczonym do sieci 192.168.1.0 oraz 192.168.3.0
 ```
 R1#configure terminal
 R1(config)#router rip
