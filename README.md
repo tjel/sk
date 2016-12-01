@@ -73,7 +73,7 @@ R1(config-subif)#encapsulation dot1Q 10
 R1(config-subif)#ip address 10.0.10.1 255.255.255.0
 R1(config-subif)#interface f0/0.20
 R1(config-subif)#encapsulation dot1Q 20
-R1(config-subif)#ip address 10.0.20.0.1 255.255.255.0
+R1(config-subif)#ip address 10.0.20.1 255.255.255.0
 R1(config-subif)#exit
 R1(config-if)#exit
 R1(config)#exit
