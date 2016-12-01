@@ -6,6 +6,9 @@
 
 [3] Forouzan, [Computer Networks: A Top-Down Approach](https://www.amazon.com/Computer-Networks-Top-Down-Approach/dp/0073523267/ref=sr_1_3?s=books&ie=UTF8&qid=1478721337&sr=1-3&keywords=forouzan+computer)
 
+[4] Hartpence, [Routing i switching](http://helion.pl/ksiazki/routing-i-switching-praktyczny-przewodnik-bruce-hartpence,routin.htm)
+
+[5] Dooley, [Cisco IOS](http://shop.oreilly.com/product/9780596527228.do)
 ---
 2016.12.01
 
