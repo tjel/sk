@@ -12,8 +12,11 @@
 
 __Uwaga:__
 - Projekt sieci zapisac jako: kolokwium-1-nazwisko
-- W razie potrzeby obraz systemu operacyjnego routera c3725 pobrac poprzez polecenie scp unixman@155.158.206.23:/home/unixman/cisco/c3725-new.bin
+- W razie potrzeby obraz systemu operacyjnego routera c3725 pobrac poprzez polecenie:
+```bash
+scp unixman@155.158.206.23:/home/unixman/cisco/c3725-new.bin ~
+```
 - Po rozwiazaniu zadania upewnic sie czy ustawienia VPCS-ow oraz routerow sa zapisane
 - Usunac plik z rozszerzeniem .ghost z katalogu kolokwium-1-<nazwisko>/project-files/dynamips
-- Spakowac katalog projektu do formatu tar.gz 
+- Spakowac katalog projektu do formatu .tar.gz 
 - Rozwiazanie zadania wyslac mailem na adres tomek.jelinski@gmail.com 
